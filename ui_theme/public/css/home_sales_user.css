@@ -1,0 +1,136 @@
+/* ====== NAVBAR: gradient-only, minimal & safe ====== */
+
+/* 0) Override CSS variable that Frappe uses for navbar background */
+:root,
+html[data-theme="light"],
+html[data-theme="dark"],
+[data-theme="light"],
+[data-theme="dark"] {
+    --navbar-bg: linear-gradient(-135deg, hsl(92, 75%, 55%), hsl(187, 68%, 46%));
+}
+
+/* 1) Navbar background layer ONLY - Target with maximum specificity to override Frappe's styles */
+/* Target the exact navbar structure from Frappe's HTML */
+.sticky-top > header.navbar.navbar-expand[role="navigation"],
+.sticky-top > header.navbar.navbar-expand,
+.sticky-top header.navbar,
+header.navbar.navbar-expand[role="navigation"],
+header.navbar.navbar-expand,
+header.navbar[role="navigation"],
+header.navbar,
+.navbar.navbar-expand,
+.navbar {
+    position: relative !important;
+    z-index: 1000 !important;
+    /* Override both the CSS variable usage and set direct background */
+    background: linear-gradient(-135deg, hsl(92, 75%, 55%), hsl(187, 68%, 46%)) !important;
+    background-image: linear-gradient(-135deg, hsl(92, 75%, 55%), hsl(187, 68%, 46%)) !important;
+    background-color: transparent !important;
+    box-shadow: 0 4px 20px rgba(77, 184, 168, 0.18) !important;
+    border: none !important;
+    border-bottom: none !important;
+}
+
+/* Additional override for any inline styles or computed styles */
+body .navbar,
+body header.navbar,
+body .sticky-top .navbar {
+    background: linear-gradient(-135deg, hsl(92, 75%, 55%), hsl(187, 68%, 46%)) !important;
+    background-image: linear-gradient(-135deg, hsl(92, 75%, 55%), hsl(187, 68%, 46%)) !important;
+}
+  
+
+/* 2) Prevent the gradient from visually "bleeding" into controls */
+.navbar > .container,
+.navbar .navbar-inner,
+.navbar .navbar-brand,
+.navbar .nav {
+    background: transparent !important;
+}
+
+/* 3) BREADCRUMB TEXT - DARK/BLACK FOR READABILITY */
+.navbar .breadcrumb,
+.navbar .breadcrumb-item,
+.navbar .breadcrumb-item a,
+.navbar .breadcrumb li,
+.navbar .breadcrumb li a {
+    color: #1f2937 !important;
+    font-weight: 600 !important;
+}
+
+.navbar .breadcrumb-item:hover,
+.navbar .breadcrumb-item a:hover {
+    color: #000 !important;
+}
+
+/* 4) Brand, top-level nav links and icons - DARK TEXT */
+.navbar .navbar-brand,
+.navbar .nav > li > a,
+.navbar .navbar-home,
+.navbar .navbar-right .nav-link {
+    color: #1f2937 !important;
+    font-weight: 600 !important;
+}
+
+.navbar .nav .icon,
+.navbar .nav svg,
+.navbar i {
+    color: #1f2937 !important;
+    fill: #1f2937 !important;
+}
+
+/* 5) PROTECT inputs, search box and awesomplete */
+.navbar .search-bar,
+.navbar .search-bar *,
+.navbar .form-control,
+.navbar input[type="text"],
+.navbar .awesomplete,
+.navbar .awesomplete *,
+.navbar .dropdown-toggle,
+.navbar .dropdown-menu,
+.navbar select,
+.navbar option {
+    background: #ffffff !important;
+    color: #333 !important;
+    border-color: #e6e6e6 !important;
+    box-shadow: none !important;
+}
+
+/* 6) Search input styling */
+.navbar .search-bar input.form-control,
+.navbar .form-control.search {
+    background: #fff !important;
+    color: #333 !important;
+    border: 1px solid #e6e6e6 !important;
+    box-shadow: none !important;
+}
+
+/* 7) Awesomplete dropdown list */
+.navbar .awesomplete ul {
+    background: #fff !important;
+    color: #222 !important;
+    border: 1px solid rgba(0,0,0,0.08) !important;
+}
+
+/* 8) Dropdown menu text */
+.navbar .dropdown-menu,
+.navbar .dropdown-menu a {
+    color: #222 !important;
+    background: #fff !important;
+}
+
+/* 9) Selects/options */
+.navbar select,
+.navbar option {
+    color: #222 !important;
+    background: #fff !important;
+}
+
+/* 10) Avatar and user actions */
+.navbar .avatar,
+.navbar .user-action {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+/* ===== End: Safe navbar-only gradient ===== */

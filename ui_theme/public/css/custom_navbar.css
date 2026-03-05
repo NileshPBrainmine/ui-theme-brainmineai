@@ -1,0 +1,57 @@
+.brainmine-text {
+    color: white !important;
+    font-weight: 600;
+    font-size: 18px;
+    margin-left: 8px;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+    transition: opacity 0.2s ease;
+}
+
+/* .brainmine-link:hover .brainmine-text {
+    opacity: 0.8;
+} */
+
+/* ---------------------------------------------------------
+   Desk Navbar Gradient (Frappe / ERPNext Desk)
+   This is the most reliable place to override because it targets
+   the actual Desk navbar HTML: <div class="sticky-top"><header class="navbar ...">
+--------------------------------------------------------- */
+
+.sticky-top > header.navbar,
+.sticky-top header.navbar,
+header.navbar.navbar-expand,
+header.navbar[role="navigation"],
+header.navbar,
+body .sticky-top > header.navbar,
+body header.navbar,
+body .navbar {
+    /* Set the variable on the element itself (beats :root re-definitions) */
+    --navbar-bg: linear-gradient(-135deg, #87e337, #23bac7);
+
+    /* And set background directly (beats Frappe's `background: var(--navbar-bg)` ) */
+    background: linear-gradient(-135deg, #87e337, #23bac7) !important;
+    background-image: linear-gradient(-135deg, #87e337, #23bac7) !important;
+    background-color: transparent !important;
+
+    border-bottom: 0 !important;
+    box-shadow: 0 4px 20px rgba(77, 184, 168, 0.18) !important;
+}
+
+/* White text for navbar links and brand */
+header.navbar .nav-link,
+header.navbar .navbar-brand {
+    color: #ffffff !important;
+}
+
+/* White icons for RIGHT-SIDE navbar only (bell, user, dropdowns)
+   — leave the search/awesomebar completely untouched so Frappe
+     renders its default magnifying-glass icon                     */
+header.navbar .navbar-right svg,
+header.navbar .navbar-right .es-icon,
+header.navbar .notifications-icon svg,
+header.navbar .dropdown-toggle svg,
+header.navbar .navbar-right .nav-link svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
